@@ -1,10 +1,10 @@
-// Define ButtonProps interface locally
-export interface ButtonProps {
-  buttonLabel: string;
-  buttonSize: string;
-  buttonBackgroundColor?: 'red' | 'blue' | 'orange' | 'green';
-  action: () => void;
+interface ButtonProps {
+  buttonLabel: string
+  buttonSize?: string
+  buttonBackgroundColor?: 'red' | 'blue' | 'orange' | 'green'
+  action?: () => void
 }
+
 
 const Button = ({ buttonLabel, buttonSize, buttonBackgroundColor, action }: ButtonProps) => {
 
@@ -17,8 +17,7 @@ const Button = ({ buttonLabel, buttonSize, buttonBackgroundColor, action }: Butt
 
 
   return (
-    // Note: The Tailwind hover class is corrected to use interpolation safely.
-    <button onClick={action} className={`${backgroundColorClass} ${buttonSize} px-6 py-2 text-sm font-semibold rounded-lg hover:opacity-75 transition duration-300 text-white`}>
+    <button onClick={action} className={`${backgroundColorClass} ${buttonSize} px-6 py-2 text-sm font-semibold rounded-lg hover:${backgroundColorClass}/50 transition duration-300 text-white`}>
       {buttonLabel}
     </button>
   )
